@@ -47,7 +47,7 @@ func main() {
 		if err != nil {
 			log.Fatalf("Could not create file")
 		}
-		_, err = create.Write([]byte("Public Key: \nPrivate Key: "))
+		_, err = create.Write([]byte("PUBLIC KEY: \nPRIVATE KEY: "))
 		if err != nil {
 			log.Fatalf("Could not write to file")
 		}
