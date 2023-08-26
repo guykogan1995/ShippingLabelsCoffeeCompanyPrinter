@@ -92,7 +92,7 @@ func main() {
 		}
 		for j := 0; j < len(orders.Orders[i].Items); j++ {
 			searchCoffee := orders.Orders[i].Items[j].Sku
-			searchCoffee = strconv.Itoa(orders.Orders[i].AdvancedOptions.StoreId) + ":" + searchCoffee
+			searchCoffee = strconv.Itoa(orders.Orders[i].AdvancedOptions.StoreId) + "#" + searchCoffee
 			quantity = orders.Orders[i].Items[j].Quantity
 			if quantity > 1 {
 				for i := 0; i < quantity; i++ {
@@ -113,7 +113,8 @@ func main() {
 		}
 	}
 	for i, id := range stringID {
-		err := GoogleDrive.DownloadFile(client, id, ".\\Pictures\\"+strings.ReplaceAll(orderSku[i], ":", "")+"---"+strconv.Itoa(i+1)+".png")
+		id = strings.Split(id, "#")[0]
+		err = GoogleDrive.DownloadFile(client, id, ".\\Pictures\\"+strings.ReplaceAll(orderSku[i], ":", "")+"---"+strconv.Itoa(i+1)+".png")
 		if err != nil {
 			log.Println("\n-------\nCould not download file with name: " + orderSku[i] + "\n-------")
 		}

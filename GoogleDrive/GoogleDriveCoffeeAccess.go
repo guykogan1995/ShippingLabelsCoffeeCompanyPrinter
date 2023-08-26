@@ -105,7 +105,7 @@ func SearchFilesOnDrive(client *http.Client, searchStrings []string, sharedDrive
 		}
 		if len(r.Files) > 0 {
 			for i := 0; i < len(r.Files); i++ {
-				results = append(results, r.Files[i].Id+":"+r.Files[i].Name)
+				results = append(results, r.Files[i].Id+"#"+r.Files[i].Name)
 			}
 		}
 	}
