@@ -10,9 +10,25 @@ Before using the programs, make sure you have the following files in the same di
 
 - **GoogleDriveCredentials.json**: This file should contain your OAuth JSON data for connecting to Google Drive. If the file is not found, it will be created, and you should provide the necessary OAuth credentials.
 
-## Permission Requirements
+### Setting Up Google API Console
+
+Go to Google Cloud Console
+Create a new project.
+Navigate to Library, search for Google Drive API, and enable it.
+Go to Credentials and create an OAuth 2.0 Client ID.
+Choose Desktop App as the application type.
+Make sure you add the drive.DriveReadonlyScope and drive.DriveScope
+Download the credentials in .json format.
+
+Note: Must use a google account with access to that drive or one associated with shared drive organization.
 
 
+### Setting Up Shipstation API
+
+Open Shipstation
+Click Settings
+Account > API Settings
+Copy the API Key and API Secret into the ShipstationAPI-KeyAccess.txt
 
 ## Program Descriptions
 
@@ -86,6 +102,8 @@ The `CoffeeLabel` package contains functions to connect to Shipstation and fetch
    - Connect to Google Drive using OAuth credentials from the JSON file.
    - Fetch coffee orders from Shipstation.
    - Search for image names related to the orders from shipstation on Google Drive by **storeID:SKU**.
+     
+**NOTE** : Required naming convention for the images. They must be in .png format and have a name that is a concatenation of the SKU and StoreId from the shipstation. The SKU can be found in Orders.Items.Sku and the StoreId can be found in Orders.AdvancedOptionsStoreId
    - Download the images and store them in a `Pictures` directory.
 
 Please note that this is a basic overview of the programs' functionality. You might need to adapt and extend the code according to your specific requirements and the evolving APIs of Shipstation and Google Drive.
